@@ -1,0 +1,36 @@
+.alert-primary, .alert-primary > th, .alert-primary > td {
+  background-color: rgb(122, 135, 194);
+}
+
+.alert-secondary, .alert-secondary > th, .alert-secondary > td {
+  background-color: rgb(112, 114, 122);
+}
+
+
+.row-grid + .row-grid {
+  margin-top: 100px;
+}
+
+
+.btn-submit, .btn-submit:active, .btn-submit:visited {
+  background-color: rgb(122, 135, 194) !important;
+  color: #fff;
+}
+.btn-submit:hover {
+  background-color: rgb(97, 114, 192) !important;
+  color: #fff;
+} 
+
+.btn-flag, .btn-flag:active, .btn-flag:visited {
+  background-color: rgb(143, 160, 236) !important;
+  color: #fff;
+}
+.btn-flag:hover {
+  background-color: rgb(108, 133, 245) !important;
+  color: #fff;
+} 
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: rgb(216, 224, 252); 
+ }
