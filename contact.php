@@ -1,9 +1,10 @@
 <?php
 	 // Connects to the Database 
- 	include "sql_connection.php";
+  include "sql_connection.php";
+  require "login/loginheader.php";
   include "header.php";
   include "globalformat.php";
- 	require "login/loginheader.php";
+ 	
  ?>
   
 <html lang="en">

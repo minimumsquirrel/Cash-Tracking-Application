@@ -1,13 +1,15 @@
 <?php
 	 // Connects to the Database 
- 	include "sql_connection.php";
- 	include "header.php";
- 	require "login/loginheader.php";
+   include "sql_connection.php";
+   require "login/loginheader.php";
+   include "header.php";
+   include "globalformat.php";
+ 	
  ?>
   
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CTS</title>

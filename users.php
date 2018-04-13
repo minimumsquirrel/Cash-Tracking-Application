@@ -1,8 +1,18 @@
 <?php
 	 // Connects to the Database 
  	include "sql_connection.php";
- 	include "header.php";
- 	require "login/loginheader.php";
+  	require "login/loginheader.php";
+  	include "header.php";
+  	include "globalformat.php";
+	 
+	if($_SESSION['username'] == 'admin') {
+		// your variable equals 'yes' do something
+	}
+	
+	if($_SESSION['username'] != 'admin') {
+		// your variable does not equal 'yes' do something
+		return header("location:index.php");
+	}
  ?>
   
 <html lang="en">

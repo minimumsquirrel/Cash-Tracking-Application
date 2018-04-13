@@ -1,9 +1,9 @@
 <?php
 	 // Connects to the Database 
  	include "sql_connection.php";
- 	include "header.php";
-	include "globalformat.php";
-	require "login/loginheader.php";
+  	require "login/loginheader.php";
+  	include "header.php";
+  	include "globalformat.php";
 	 
  	 	// Function for the employee name drop down list
  		@$cat=$_GET['store_num']; // Use this line or below line if register_global is off

@@ -25,6 +25,7 @@
      $store1name = $rows['store_name'];
      $store1email = $rows['store_email'];
      $store1receive = $rows['email_receive'];
+     $store1phone = $rows['store_phone'];
    }
  
   $sql2 = "SELECT * FROM stores WHERE variable_name = 'store2'";
@@ -34,6 +35,7 @@
      $store2name = $rows['store_name'];
      $store2email = $rows['store_email'];
      $store2receive = $rows['email_receive'];
+     $store2phone = $rows['store_phone'];
    }
 
   $sql3 = "SELECT * FROM stores WHERE variable_name = 'store3'";
@@ -43,6 +45,7 @@
      $store3name = $rows['store_name'];
      $store3email = $rows['store_email'];
      $store3receive = $rows['email_receive'];
+     $store3phone = $rows['store_phone'];
    }
 
   $sql4 = "SELECT * FROM stores WHERE variable_name = 'store4'";
@@ -52,6 +55,7 @@
      $store4name = $rows['store_name'];
      $store4email = $rows['store_email'];
      $store4receive = $rows['email_receive'];
+     $store4phone = $rows['store_phone'];
    }
   
   $sql5 = "SELECT * FROM stores WHERE variable_name = 'store5'";
@@ -61,6 +65,7 @@
      $store5name = $rows['store_name'];
      $store5email = $rows['store_email'];
      $store5receive = $rows['email_receive'];
+     $store5phone = $rows['store_phone'];
    }
 
   $sql6 = "SELECT * FROM stores WHERE variable_name = 'store6'";
@@ -70,6 +75,7 @@
      $store6name = $rows['store_name'];
      $store6email = $rows['store_email'];
      $store6receive = $rows['email_receive'];
+     $store6phone = $rows['store_phone'];
    }
 
   $sql7 = "SELECT * FROM stores WHERE variable_name = 'store7'";
@@ -79,6 +85,7 @@
      $store7name = $rows['store_name'];
      $store7email = $rows['store_email'];
      $store7receive = $rows['email_receive'];
+     $store7phone = $rows['store_phone'];
    }
   
   $sql8 = "SELECT * FROM stores WHERE variable_name = 'store8'";
@@ -88,6 +95,7 @@
      $store8name = $rows['store_name'];
      $store8email = $rows['store_email'];
      $store8receive = $rows['email_receive'];
+     $store8phone = $rows['store_phone'];
    }
 
   $sql9 = "SELECT * FROM stores WHERE variable_name = 'store9'";
@@ -97,6 +105,7 @@
      $store9name = $rows['store_name'];
      $store9email = $rows['store_email'];
      $store9receive = $rows['email_receive'];
+     $store9phone = $rows['store_phone'];
    }
     
   $sql10 = "SELECT * FROM stores WHERE variable_name = 'store10'";
@@ -106,6 +115,7 @@
      $store10name = $rows['store_name'];
      $store10email = $rows['store_email'];
      $store10receive = $rows['email_receive'];
+     $store10phone = $rows['store_phone'];
    } 
 
    $sql11 = "SELECT * FROM globalformat WHERE variable_name = 'storeadminreceive'";
