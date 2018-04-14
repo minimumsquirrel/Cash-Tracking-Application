@@ -188,7 +188,7 @@
       } 
     
     // Values for Labels
-
+      date_default_timezone_set('America/Halifax');
       $currentday = date("Y-m-d");
       $previousday = date("F j, Y", strtotime( '-1 days' ) );
       $previousmonth = date("F, Y", strtotime( '-1 month' ) );

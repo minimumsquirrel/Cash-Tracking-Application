@@ -567,6 +567,7 @@
 	//Updating or editing existing data
 
 	if ( isset($_POST['edit_data']) ) {
+		$edited_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
 		$edit_store_num = mysqli_real_escape_string($conn, strip_tags($_POST['edit_store_num']));
 		$edit_employee_name = mysqli_real_escape_string($conn, strip_tags($_POST['edit_employee_name']));
 		$edit_date = mysqli_real_escape_string($conn, strip_tags($_POST['edit_date']));
@@ -580,7 +581,7 @@
 		$edit_flagged = mysqli_real_escape_string($conn, strip_tags($_POST['edit_flagged']));
 		$edit_comments = mysqli_real_escape_string($conn, strip_tags($_POST['edit_comments']));
 		$edit_id = $_POST['edit_user_id'];
-		$edit_sql = "UPDATE dailyentry SET store_num = '$edit_store_num', employee_name = '$edit_employee_name', date = '$edit_date', tred = '$edit_tred', tred_num = '$edit_tred_num', promo = '$edit_promo', promo_num = '$edit_promo_num', cash = '$edit_cash', refunds = '$edit_refunds', refunds_num = '$edit_refunds_num', flagged = '$edit_flagged', comments = '$edit_comments' WHERE id = '$edit_id' ";
+		$edit_sql = "UPDATE dailyentry SET store_num = '$edit_store_num', employee_name = '$edit_employee_name', date = '$edit_date', tred = '$edit_tred', tred_num = '$edit_tred_num', promo = '$edit_promo', promo_num = '$edit_promo_num', cash = '$edit_cash', refunds = '$edit_refunds', refunds_num = '$edit_refunds_num', flagged = '$edit_flagged', comments = '$edit_comments', edited_ip = '$edited_ip', edited_date = '$currentday' WHERE id = '$edit_id' ";
 		if(mysqli_query($conn, $edit_sql)) { ?> 
 			<script>window.location = 'records.php';</script>
 		<?php } 

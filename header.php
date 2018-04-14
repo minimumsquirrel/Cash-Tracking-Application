@@ -40,9 +40,8 @@
                       <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                    </ul>
-
-                   <ul class="nav navbar-nav navbar-right">
                     
+                   <ul class="nav navbar-nav navbar-right">
                     <ul class="nav nav-pills2">
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="changelog.php" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
