@@ -5,15 +5,16 @@
    include "header.php";
    include "globalformat.php";
 
-   if($_SESSION['username'] == 'admin') {
+   if($_SESSION['access_level'] == 'admin') {
     // your variable equals 'yes' do something
 }
 
-  if($_SESSION['username'] != 'admin') {
+if($_SESSION['access_level'] != 'admin') {
     // your variable does not equal 'yes' do something
     return header("location:index.php");
     exit;
 }
+ 
 
  ?>
   

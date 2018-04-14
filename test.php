@@ -37,6 +37,12 @@ echo $username_data;
 echo $_SERVER["REMOTE_ADDR"];
 ?>
 
+<br></br>
+
+<?php 
+echo $_SESSION['access_level'];
+?>
+
 	  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.2.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
