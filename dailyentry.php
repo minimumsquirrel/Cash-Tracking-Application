@@ -356,7 +356,7 @@
 
 	if( isset($_POST['submit_data']) ) {
 		
-		$entered_by = $username_data;
+		$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
 		$store_num = mysqli_real_escape_string($conn, strip_tags($_POST['store_num']));
 		$employee_name = mysqli_real_escape_string($conn, strip_tags($_POST['employee_name']));
 		$date = mysqli_real_escape_string($conn, strip_tags($_POST['date']));
@@ -367,7 +367,7 @@
 		$cash = mysqli_real_escape_string($conn, strip_tags($_POST['cash']));
 		$refunds = mysqli_real_escape_string($conn, strip_tags($_POST['refunds']));
 		$refunds_num = mysqli_real_escape_string($conn, strip_tags($_POST['refunds_num']));
-		$ins_sql = "INSERT INTO dailyentry (store_num, employee_name, date, date_entered, tred, tred_num, promo, promo_num, cash, refunds, refunds_num) VALUES ('$store_num', '$employee_name', '$date', '$currentday', '$tred', '$tred_num', '$promo', '$promo_num', '$cash', '$refunds', '$refunds_num')";
+		$ins_sql = "INSERT INTO dailyentry (store_num, employee_name, date, date_entered, tred, tred_num, promo, promo_num, cash, refunds, refunds_num, entered_ip) VALUES ('$store_num', '$employee_name', '$date', '$currentday', '$tred', '$tred_num', '$promo', '$promo_num', '$cash', '$refunds', '$refunds_num', '$entered_ip')";
 		
 		if (mysqli_query($conn, $ins_sql)) { ?>
 			<script>window.location = "dailyentry.php";</script>

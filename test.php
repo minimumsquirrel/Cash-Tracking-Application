@@ -2,8 +2,9 @@
 	 // Connects to the Database 
   include "sql_connection.php";
   require "login/loginheader.php";
- 	include "header.php";
   include "globalformat.php";
+ 	include "header.php";
+  
    
  ?>
   
@@ -27,6 +28,13 @@
 <?php                 
 
 echo $username_data;
+
+?> 
+
+<br></br>
+
+<?php 
+echo $_SERVER["REMOTE_ADDR"];
 ?>
 
 	  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
