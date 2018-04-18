@@ -150,7 +150,7 @@
 					<div class="form-group col-md-6">
 						<div class="form-group">
 							<label>Date Hired (yyyy-mm-dd)</label>
-							<input type ="date" name="date_hired" class="form-control" required>
+							<input type ="date" name="date_hired" class="form-control" value="<?php date_default_timezone_set("Canada/Atlantic"); echo date('Y-m-d'); ?>" required>
 						</div>
 						<div class="form-group">
 							<label>Active Y/N</label>

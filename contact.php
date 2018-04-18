@@ -141,4 +141,21 @@
  	</body>
 </html>
 
+<?php
+	//Inserting new data
 
+	if( isset($_POST['submit']) ) {
+		
+		$sender_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+		$name = mysqli_real_escape_string($conn, strip_tags($_POST['name']));
+		$email = mysqli_real_escape_string($conn, strip_tags($_POST['email']));
+		$subject = mysqli_real_escape_string($conn, strip_tags($_POST['subject']));
+		$message = mysqli_real_escape_string($conn, strip_tags($_POST['message']));
+		
+		$ins_sql = "INSERT INTO contact_records (sender_ip, name, email, subject, message, date) VALUES ('$sender_ip', '$name', '$email', '$subject', '$message', '$currentday')";
+		
+		if (mysqli_query($conn, $ins_sql)) { ?>
+			<script>window.location = "dailyentry.php";</script>
+		<?php }
+
+	}

@@ -107,21 +107,19 @@
  					}
  					?>
 
- 					<h3 class='col-md-6'>Edit</h3>
-	 		<form method="post">
-			 	<div class="form-row">
+ 		
+		 <form method="post">
+				<dic class="row row-grid">
 					<div class="form-group col-md-6">
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label>Store Number</label>
-								<input type ="text" name="edit_store_num" value="<?php echo $store_num; ?>" class="form-control" required>
-							</div>
-							<div class="form-group col-md-8">
-								<label>Employee Name (Last,First)</label>
-								<input type ="text" name="edit_employee_name" value="<?php echo $employee_name; ?>" class="form-control" required>
-							</div>
-						</div> 
 						<div class="form-group">
+							<label>Store Number</label>
+							<input type ="text" name="edit_store_num" value="<?php echo $store_num; ?>" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Employee Name (Last,First)</label>
+							<input type ="text" name="edit_employee_name" value="<?php echo $employee_name; ?>" class="form-control" required>
+						</div>
+					 	<div class="form-group">
 							<label>Date (yyyy-mm-dd)</label>
 							<input type ="date" name="edit_date" value="<?php echo $date; ?>" class="form-control" required>
 						</div>
@@ -129,6 +127,8 @@
 							<label>Cash +/-</label>
 							<input type ="text" name="edit_cash" value="<?php echo $cash; ?>" class="form-control" required>
 						</div>
+					</div>
+					<div class="form-group col-md-6">
 						<div class="form-row">  
 							<div class="form-group col-md-6">
 								<label>Refunds</label>

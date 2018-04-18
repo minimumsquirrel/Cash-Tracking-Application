@@ -40,7 +40,6 @@
                       <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                    </ul>
-                    
                    <ul class="nav navbar-nav navbar-right">
                     <ul class="nav nav-pills2">
                         <li class="nav-item dropdown">
