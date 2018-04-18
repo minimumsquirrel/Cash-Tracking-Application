@@ -243,12 +243,13 @@
 	//Inserting new data
 
 	if( isset($_POST['submit_employees']) ) {
-
+		
+		$ip_entered = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
 		$store_num = mysqli_real_escape_string($conn, strip_tags($_POST['store_num']));
 		$employee_name = mysqli_real_escape_string($conn, strip_tags($_POST['employee_name']));
 		$date_hired = mysqli_real_escape_string($conn, strip_tags($_POST['date_hired']));
 		$active = mysqli_real_escape_string($conn, strip_tags($_POST['active']));
-		$ins_sql = "INSERT INTO employees (store_num, employee_name, date_hired, active) VALUES ('$store_num', '$employee_name', '$date_hired', '$active')";
+		$ins_sql = "INSERT INTO employees (store_num, employee_name, date_hired, active, ip_entered, date_entered) VALUES ('$store_num', '$employee_name', '$date_hired', '$active', '$ip_entered', '$currentday')";
 		
 		if (mysqli_query($conn, $ins_sql)) { ?>
 			<script>window.location = "employees.php";</script>
@@ -268,12 +269,13 @@
 
 	//Updating or editing existing data
 	if ( isset($_POST['edit_data']) ) {
+		$ip_edited = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
 		$edit_store_num = mysqli_real_escape_string($conn, strip_tags($_POST['edit_store_num']));
 		$edit_employee_name = mysqli_real_escape_string($conn, strip_tags($_POST['edit_employee_name']));
 		$edit_date_hired = mysqli_real_escape_string($conn, strip_tags($_POST['edit_date_hired']));
 		$edit_active = mysqli_real_escape_string($conn, strip_tags($_POST['edit_active']));
 		$edit_id = $_POST['edit_user_id'];
-		$edit_sql = "UPDATE employees SET store_num = '$edit_store_num', employee_name = '$edit_employee_name', date_hired = '$edit_date_hired', active = '$edit_active' WHERE id = '$edit_id' ";
+		$edit_sql = "UPDATE employees SET store_num = '$edit_store_num', employee_name = '$edit_employee_name', date_hired = '$edit_date_hired', active = '$edit_active', ip_edited = '$ip_edited', date_edited = '$currentday' WHERE id = '$edit_id' ";
 		if(mysqli_query($conn, $edit_sql)) { ?> 
 			<script>window.location = 'employees.php';</script>
 		<?php } 
