@@ -211,6 +211,15 @@
         $emailsubjectmonthly = $rows['variable_value'];
         
       }
+
+    // 90 Day Employee Email Subject
+
+    $sql19 = "SELECT * FROM globalformat WHERE variable_name = 'emailsubject90'";
+    $run19 = mysqli_query($conn, $sql19);
+    while ( $rows = mysqli_fetch_assoc($run19) ) {
+      $emailsubject90 = $rows['variable_value'];
+      
+    }
       
     // Header value
     
@@ -231,9 +240,9 @@
 
   //Number of Records Displayed
 
-    $sql19 = "SELECT * FROM globalformat WHERE variable_name = 'recordsdisplayed'";
-    $run19 = mysqli_query($conn, $sql19);
-    while ( $rows = mysqli_fetch_assoc($run19) ) {
+    $sql20 = "SELECT * FROM globalformat WHERE variable_name = 'recordsdisplayed'";
+    $run20 = mysqli_query($conn, $sql20);
+    while ( $rows = mysqli_fetch_assoc($run20) ) {
       $recordsdisplayed = $rows['variable_value'];
       
     } 
@@ -244,9 +253,9 @@
 
   // Number of Entries displayed in the table
 
-    $sql20 = "SELECT * FROM globalformat WHERE variable_name = 'dailyentrydisplayed'";
-    $run20 = mysqli_query($conn, $sql20);
-    while ( $rows = mysqli_fetch_assoc($run20) ) {
+    $sql21 = "SELECT * FROM globalformat WHERE variable_name = 'dailyentrydisplayed'";
+    $run21 = mysqli_query($conn, $sql21);
+    while ( $rows = mysqli_fetch_assoc($run21) ) {
       $dailyentrydisplayed = $rows['variable_value'];
       
     } 

@@ -99,6 +99,10 @@
                 <input type ="text" name="edit_emailsubjectmonthly" value="<?php echo $emailsubjectmonthly; ?>" class="form-control" required>
               </div>
               <div class="form-group">
+                <label>Employee Report: 90 Day Report Subject</label>
+                <input type ="text" name="edit_emailsubject90" value="<?php echo $emailsubject90; ?>" class="form-control" required>
+              </div>
+              <div class="form-group">
                 <hr>
                 <input type ="hidden" value="<?php echo $_GET['edit_id']?>" name="edit_user_id">
                 <input type ="submit" value="Edit Complete" name="edit_data" class="btn btn-submit">
@@ -385,6 +389,7 @@
     $edit_tredsvalue = mysqli_real_escape_string($conn, strip_tags($_POST['edit_tredsvalue']));
     $edit_emailsubject = mysqli_real_escape_string($conn, strip_tags($_POST['edit_emailsubject']));
     $edit_emailsubjectmonthly = mysqli_real_escape_string($conn, strip_tags($_POST['edit_emailsubjectmonthly']));
+    $edit_emailsubject90 = mysqli_real_escape_string($conn, strip_tags($_POST['edit_emailsubject90']));
     
 
     $edit_sql = "UPDATE globalformat SET variable_value = CASE 
@@ -399,6 +404,7 @@
     WHEN variable_name='tredsvalue' THEN '$edit_tredsvalue'
     WHEN variable_name='emailsubject' THEN '$edit_emailsubject'
     WHEN variable_name='emailsubjectmonthly' THEN '$edit_emailsubjectmonthly'
+    WHEN variable_name='emailsubject90' THEN '$edit_emailsubject90'
     ELSE variable_value END";
     
     

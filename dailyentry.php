@@ -62,22 +62,22 @@
 	 		<div class="container">
 				<br></br> 
 				<div class="form-row"> 
-							<div class="col-md-4">
-								<div class="alert alert-dismissible alert-primary">								
-									<strong>Step 1.</strong> Daily Entry. <a href="dailyentry.php" class="alert-link">Enter daily information on this page.</a> Enter details daily, then to review the entries proceed to step 2.
-								</div>								
-							</div>
-							<div class="form-group col-md-4">
-								<div class="alert alert-dismissible alert-secondary">								
-									<strong>Step 2.</strong> Records Review. <a href="records.php" class="alert-link">Review all records on this page.</a> Many search options exist to find individual entries.
-								</div>					
-							</div>
-							<div class="form-group col-md-4">
-								<div class="alert alert-dismissible alert-secondary">								
-									<strong>Step 3.</strong> Employee Records Review. <a href="recordsemployees.php" class="alert-link">Review all employee records on this page.</a> Lists all employees and their combined totals.
-								</div>					
-							</div>
-			</div>  
+					<div class="col-md-4">
+						<div class="alert alert-dismissible alert-primary">								
+							<strong>Step 1.</strong> Daily Entry. <a href="dailyentry.php" class="alert-link">Enter daily information on this page.</a> Enter details daily, then to review the entries proceed to step 2.
+						</div>								
+					</div>
+					<div class="form-group col-md-4">
+						<div class="alert alert-dismissible alert-secondary">								
+							<strong>Step 2.</strong> Records Review. <a href="records.php" class="alert-link">Review all records on this page.</a> Many search options exist to find individual entries.
+						</div>					
+					</div>
+					<div class="form-group col-md-4">
+						<div class="alert alert-dismissible alert-secondary">								
+							<strong>Step 3.</strong> Employee Records Review. <a href="recordsemployees.php" class="alert-link">Review all employee records on this page.</a> Lists all employees and their combined totals.
+						</div>					
+					</div>
+				</div>  
 
  		<div class="container">
 		 		<div class="col-md-12">
@@ -107,7 +107,7 @@
  					}
  					?>
 
- 					<h3 class='col-md-6'>Edit</h3>
+ 		<h3 class='col-md-6'>Edit</h3>
 	 		<form method="post">
 				<dic class="row row-grid">
 					<div class="form-group col-md-6">
