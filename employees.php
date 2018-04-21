@@ -189,7 +189,7 @@
 		 
 				$sort_employeename = isset($_POST['sort_employeename']) ? $_POST['sort_employeename']:'employee_name';
 				
-				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:'*';
+				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$username_data;
 	 			$sql = "SELECT id, store_num, employee_name, date_hired, active, DATEDIFF('$currentday', date_hired) AS date_worked FROM employees WHERE store_num = '$store_num' ORDER BY $sort_employeename";
 				$run = mysqli_query($conn, $sql);
 	

@@ -153,7 +153,7 @@
 				</div>
 				<?php 
 		 
-		 		$store_num = isset($_GET['store_num']) ? $_GET['store_num']:'';
+		 		$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$username_data;
 		 		$current_month = isset($_POST['current_month']) ? $_POST['current_month']:'';
 				$three_months = isset($_POST['three_months']) ? $_POST['three_months']:'';
 				$six_months = isset($_POST['six_months']) ? $_POST['six_months']:'';

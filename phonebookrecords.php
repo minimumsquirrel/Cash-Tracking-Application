@@ -224,7 +224,7 @@
 
 		 	<?php } 
 		 	
-				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:'';
+				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$username_data;
 				$contact_type = isset($_POST['contact_type']) ? $_POST['contact_type']:'';
 				$name = isset($_POST['name']) ? $_POST['name']:'';
 				$company_name = isset($_POST['company_name']) ? $_POST['company_name']:'';
