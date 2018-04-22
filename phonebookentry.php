@@ -51,6 +51,26 @@
 	
 	</script>
 
+	<?php 
+
+		//Check to make sure store number access is in same group as user group
+
+		$stored_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
+		$sql_organization = "SELECT * FROM stores WHERE store_num = '$stored_num'";
+			$run_organization = mysqli_query($conn, $sql_organization);
+			while ( $rows = mysqli_fetch_assoc($run_organization) ) {
+				$store_organization = $rows['store_organization'];
+		}
+		
+		if($user_organization != $store_organization) {
+			// your variable does not equal 'yes' do something
+			return header("location:index.php");
+			exit;
+		}
+
+		//End of Check
+
+	?>
 
 
 
@@ -94,11 +114,17 @@
  						$company_name = $rows['company_name'];
  						$email = $rows['email'];
  						$phone_num = $rows['phone_num']; 						
- 						$comments = $rows['comments'];
-						
+						$comments = $rows['comments'];
+						$organization = $rows['organization']; 
 					}
-
- 			?>
+					 
+					if($user_organization != $organization) {
+						// your variable does not equal 'yes' do something
+						return header("location:phonebookentry.php");
+						exit;
+					}
+					
+			?>
 
 			<form method="post">
 				<div class="row row-grid">
@@ -228,8 +254,8 @@
 
 		 	<?php } 
 
-				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:'*';
-	 			$sql = "SELECT * FROM phonebook WHERE store_num = '$store_num'";
+				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
+	 			$sql = "SELECT * FROM phonebook WHERE store_num = '$store_num' AND organization = '$user_organization'";
 				$run = mysqli_query($conn, $sql);
 
 				echo "
@@ -298,7 +324,7 @@
 		$email = mysqli_real_escape_string($conn, strip_tags($_POST['email']));
 		$phone_num = mysqli_real_escape_string($conn, strip_tags($_POST['phone_num']));
 		$comments = mysqli_real_escape_string($conn, strip_tags($_POST['comments']));		
-		$ins_sql = "INSERT INTO phonebook (store_num, contact_type, name, company_name, email, phone_num, comments) VALUES ('$store_num', '$contact_type', '$name', '$company_name', '$email', '$phone_num', '$comments')";
+		$ins_sql = "INSERT INTO phonebook (store_num, organization, contact_type, name, company_name, email, phone_num, comments) VALUES ('$store_num', '$user_organization', '$contact_type', '$name', '$company_name', '$email', '$phone_num', '$comments')";
 		
 		if (mysqli_query($conn, $ins_sql)) { ?>
 			<script>window.location = "phonebookentry.php";</script>

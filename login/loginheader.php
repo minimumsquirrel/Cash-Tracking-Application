@@ -25,6 +25,19 @@ $sql2 = "SELECT * FROM members WHERE username = '$_SESSION[username]'";
 
     $_SESSION['user_organization'] = $user_organization;
 
+$sql3 = "SELECT * FROM members WHERE username = '$_SESSION[username]'";
+   $run3 = mysqli_query($conn, $sql3);
+   while ( $rows3 = mysqli_fetch_assoc($run3) ) {
+     $default_store = $rows3['default_store'];
+    
+    }
+
+    $_SESSION['user_organization'] = $user_organization;
+
+
+
+
+
 
 if (!isset($_SESSION['username'])) {
     return header("location:login/main_login.php");

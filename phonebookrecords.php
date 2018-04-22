@@ -53,6 +53,27 @@
 
 	<!-- End of script to check before deleting entries in the data table -->
 
+	<?php 
+
+		//Check to make sure store number access is in same group as user group
+
+		$stored_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
+		$sql_organization = "SELECT * FROM stores WHERE store_num = '$stored_num'";
+			$run_organization = mysqli_query($conn, $sql_organization);
+			while ( $rows = mysqli_fetch_assoc($run_organization) ) {
+				$store_organization = $rows['store_organization'];
+		}
+
+		if($user_organization != $store_organization) {
+			// your variable does not equal 'yes' do something
+			return header("location:index.php");
+			exit;
+		}
+
+		//End of Check
+
+	?>
+
 
   </head>
  	<body>
@@ -94,10 +115,16 @@
  						$company_name = $rows['company_name'];
  						$email = $rows['email'];
  						$phone_num = $rows['phone_num']; 						
- 						$comments = $rows['comments'];
-						
+						$comments = $rows['comments'];
+						$organization = $rows['organization']; 
 					}
-
+					 
+					if($user_organization != $organization) {
+						// your variable does not equal 'yes' do something
+						return header("location:phonebookrecords.php");
+						exit;
+					}
+			
  			?>
 
 				<h3>Edit</h3>
@@ -224,7 +251,7 @@
 
 		 	<?php } 
 		 	
-				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$username_data;
+				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
 				$contact_type = isset($_POST['contact_type']) ? $_POST['contact_type']:'';
 				$name = isset($_POST['name']) ? $_POST['name']:'';
 				$company_name = isset($_POST['company_name']) ? $_POST['company_name']:'';
@@ -232,7 +259,7 @@
 				$phone_num = isset($_POST['phone_num']) ? $_POST['phone_num']:'';
 				  
 
-		 		$total_query = "WHERE store_num = '$store_num'";
+		 		$total_query = "WHERE store_num = '$store_num' AND organization = '$user_organization'";
 		 			
 		 			if(!empty($contact_type)){
 		 				$total_query .= "AND contact_type = '$contact_type'";

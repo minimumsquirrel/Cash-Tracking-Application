@@ -53,6 +53,27 @@
 
 	<!-- End of script to check before deleting entries in the data table -->
 
+	<?php 
+
+		//Check to make sure store number access is in same group as user group
+
+		$stored_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
+		$sql_organization = "SELECT * FROM stores WHERE store_num = '$stored_num'";
+			  $run_organization = mysqli_query($conn, $sql_organization);
+			  while ( $rows = mysqli_fetch_assoc($run_organization) ) {
+				  $store_organization = $rows['store_organization'];
+		  }
+		  
+		  if($user_organization != $store_organization) {
+			// your variable does not equal 'yes' do something
+			return header("location:index.php");
+			exit;
+		  }
+
+		//End of Check
+
+	?>
+
 
 </head>
  	<body>
@@ -153,14 +174,14 @@
 				</div>
 				<?php 
 		 
-		 		$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$username_data;
+		 		$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
 		 		$current_month = isset($_POST['current_month']) ? $_POST['current_month']:'';
 				$three_months = isset($_POST['three_months']) ? $_POST['three_months']:'';
 				$six_months = isset($_POST['six_months']) ? $_POST['six_months']:'';
 				$twelve_months = isset($_POST['twelve_months']) ? $_POST['twelve_months']:'';
 				$all_time = isset($_POST['all_time']) ? $_POST['all_time']:'';
 				 
-				 $total_query = "WHERE store_num = '$store_num'";
+				 $total_query = "WHERE organization = '$user_organization' AND store_num = '$store_num'";
 		 			
 		 			if(!empty($current_month)){
 						$total_query .= "AND YEAR(date) = YEAR(CURRENT_DATE()) AND 

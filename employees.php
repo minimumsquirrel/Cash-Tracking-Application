@@ -72,9 +72,17 @@
  						$store_num = $rows['store_num'];
  						$employee_name = $rows['employee_name'];
  						$date_hired = $rows['date_hired'];
- 						$active = $rows['active'];
- 						}
- 					?>
+						$active = $rows['active'];
+						$organization = $rows['organization']; 
+					}
+					 
+					if($user_organization != $organization) {
+						// your variable does not equal 'yes' do something
+						return header("location:employees.php");
+						exit;
+					
+					}
+ 			?>
 
  		
 	 		<form method="post">
@@ -190,7 +198,7 @@
 				$sort_employeename = isset($_POST['sort_employeename']) ? $_POST['sort_employeename']:'employee_name';
 				
 				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$username_data;
-	 			$sql = "SELECT id, store_num, employee_name, date_hired, active, DATEDIFF('$currentday', date_hired) AS date_worked FROM employees WHERE store_num = '$store_num' ORDER BY $sort_employeename";
+	 			$sql = "SELECT id, store_num, employee_name, date_hired, active, DATEDIFF('$currentday', date_hired) AS date_worked FROM employees WHERE store_num = '$store_num' AND organization = '$user_organization' ORDER BY $sort_employeename";
 				$run = mysqli_query($conn, $sql);
 	
 				echo "
@@ -249,7 +257,7 @@
 		$employee_name = mysqli_real_escape_string($conn, strip_tags($_POST['employee_name']));
 		$date_hired = mysqli_real_escape_string($conn, strip_tags($_POST['date_hired']));
 		$active = mysqli_real_escape_string($conn, strip_tags($_POST['active']));
-		$ins_sql = "INSERT INTO employees (store_num, employee_name, date_hired, active, ip_entered, date_entered) VALUES ('$store_num', '$employee_name', '$date_hired', '$active', '$ip_entered', '$currentday')";
+		$ins_sql = "INSERT INTO employees (store_num, organization, employee_name, date_hired, active, ip_entered, date_entered) VALUES ('$store_num', '$user_organization', '$employee_name', '$date_hired', '$active', '$ip_entered', '$currentday')";
 		
 		if (mysqli_query($conn, $ins_sql)) { ?>
 			<script>window.location = "employees.php";</script>

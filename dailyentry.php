@@ -15,7 +15,6 @@
 		
 	}
 	
-	
 ?>
   
  <html lang="en">
@@ -55,6 +54,27 @@
 
 	<!-- End of script to check before deleting entries in the data table -->
 
+	<?php
+
+	//Check to make sure store number access is in same group as user group
+
+	$stored_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
+	$sql_organization = "SELECT * FROM stores WHERE store_num = '$stored_num'";
+		  $run_organization = mysqli_query($conn, $sql_organization);
+		  while ( $rows = mysqli_fetch_assoc($run_organization) ) {
+			  $store_organization = $rows['store_organization'];
+	  }
+	  
+	  if($user_organization != $store_organization) {
+		// your variable does not equal 'yes' do something
+		return header("location:index.php");
+		exit;
+	  }
+
+	//End of Check
+
+	?>
+	
 
   </head>
  	<body>
@@ -103,8 +123,15 @@
 						$promo_num = $rows['promo_num'];
  						$cash = $rows['cash'];
 						$refunds = $rows['refunds'];
-						$refunds_num = $rows['refunds_num']; 
- 					}
+						$refunds_num = $rows['refunds_num'];
+						$organization = $rows['organization']; 
+					 }
+					 
+					if($user_organization != $organization) {
+						// your variable does not equal 'yes' do something
+						return header("location:dailyentry.php");
+						exit;
+					}
  					?>
 
  		<h3 class='col-md-6'>Edit</h3>
@@ -117,7 +144,7 @@
 							</div>
 							<div class="form-group">
 								<label>Employee Name (Last,First)</label>
-								<input type ="text" name="edit_employee_name" value="<?php echo $employee_name; ?>" class="form-control" required>
+								<input type ="text" name="edit_employee_name" value="<?php echo $employee_name; ?>" class="form-control" disabled>
 							</div>
 							<div class="form-group">
 								<label>Date (yyyy-mm-dd)</label>
@@ -291,7 +318,7 @@
 				
 				<?php } 
 
-	 			$sql = "SELECT * FROM dailyentry ORDER BY date DESC, store_num, employee_name LIMIT 0, $dailyentrydisplayed";
+	 			$sql = "SELECT * FROM dailyentry WHERE organization = '$user_organization' ORDER BY date DESC, store_num, employee_name LIMIT 0, $dailyentrydisplayed";
 				$run = mysqli_query($conn, $sql);
 
 				echo "
@@ -386,7 +413,6 @@
 
 	if ( isset($_POST['edit_data']) ) {
 		$edited_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
-		$edit_store_num = mysqli_real_escape_string($conn, strip_tags($_POST['edit_store_num']));
 		$edit_employee_name = mysqli_real_escape_string($conn, strip_tags($_POST['edit_employee_name']));
 		$edit_date = mysqli_real_escape_string($conn, strip_tags($_POST['edit_date']));
 		$edit_tred = mysqli_real_escape_string($conn, strip_tags($_POST['edit_tred']));
@@ -399,7 +425,7 @@
 		$edit_flagged = mysqli_real_escape_string($conn, strip_tags($_POST['edit_flagged']));
 		$edit_comments = mysqli_real_escape_string($conn, strip_tags($_POST['edit_comments']));
 		$edit_id = $_POST['edit_user_id'];
-		$edit_sql = "UPDATE dailyentry SET store_num = '$edit_store_num', employee_name = '$edit_employee_name', date = '$edit_date', tred = '$edit_tred', tred_num = '$edit_tred_num', promo = '$edit_promo', promo_num = '$edit_promo_num', cash = '$edit_cash', refunds = '$edit_refunds', refunds_num = '$edit_refunds_num', flagged = '$edit_flagged', comments = '$edit_comments', edited_ip = '$edited_ip', edited_date = '$currentday' WHERE id = '$edit_id' ";
+		$edit_sql = "UPDATE dailyentry SET date = '$edit_date', tred = '$edit_tred', tred_num = '$edit_tred_num', promo = '$edit_promo', promo_num = '$edit_promo_num', cash = '$edit_cash', refunds = '$edit_refunds', refunds_num = '$edit_refunds_num', flagged = '$edit_flagged', comments = '$edit_comments', edited_ip = '$edited_ip', edited_date = '$currentday' WHERE id = '$edit_id' ";
 		if(mysqli_query($conn, $edit_sql)) { ?> 
 			<script>window.location = 'dailyentry.php';</script>
 		<?php } 
