@@ -29,19 +29,26 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/updated.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- Script to check before deleting entries in the data table -->
+
+<script language="JavaScript" type="text/javascript">
+	function checkDelete(){
+		return confirm('Confirm that you want to delete this record?');
+	}
+</script>
+
+
   </head>
  	<body>
+	 	<br></br>
  		<div class="container">
- 			<div>
- 				<br></br>
- 				<h2 class="col-md-6">Admin Controlled User Entry Form</h2>
- 			</div>
+		 <div class="col-md-12">
+					<h3>
+						Cash Tracking Program:
+						<small class="text-muted">Member Enrollment</small>
+					</h3>
+					<hr>
+				</div>
 
  			<?php 
  			
@@ -51,7 +58,8 @@
  					while ( $rows = mysqli_fetch_assoc($run) ) {
  						$username = $rows['username'];
  						$password = $rows['password'];
- 						$email = $rows['email'];
+						$email = $rows['email'];
+						$organization = $rows['organization'];
  						$contactnum = $rows['contactnum'];
  						$verified = $rows['verified'];
  						$realname = $rows['realname'];
@@ -59,80 +67,102 @@
  					}
  					?>
 
- 					<h3 class='col-md-6'>Edit</h3>
-	 		<form class="col-md-6" method="post">
-	 			<div class="form-group">
-	 				<label>Username</label>
-	 				<input type ="text" name="edit_username" value="<?php echo $username; ?>" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Password</label>
-	 				<input type ="password" name="edit_password" value="<?php echo $password; ?>" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Email</label>
-	 				<input type ="email" name="edit_email" value="<?php echo $email; ?>" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Contact Number</label>
-	 				<input type ="test" name="edit_contactnum" value="<?php echo $contactnum; ?>" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Verified</label>
-	 				<select name="edit_verified" class="form-control" required>
-	 						<option value="1">Yes</option>
-	 						<option value="0">No</option>
-	 				</select>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Name</label>
-	 				<input type ="text" name="edit_realname" value="<?php echo $realname; ?>" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<input type ="hidden" value="<?php echo $_GET['edit_id']?>" name="edit_user_id">
-	 				<input type ="submit" value="Edit Complete" name="edit_user" class="btn btn-submit">
-	 			</div>
-	 		</form>
+ 			
+	 		<form method="post">
+			 	<div class="row row-grid">
+					<div class="form-group col-md-6">
+						<div class="form-group">
+							<label>Username</label>
+							<input type ="text" name="edit_username" value="<?php echo $username; ?>" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type ="password" name="edit_password" value="<?php echo $password; ?>" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Contact Number</label>
+							<input type ="text" name="edit_contactnum" value="<?php echo $contactnum; ?>" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Organization</label>
+							<input type ="text" name="edit_organization" placeholder="Organization" value="<?php echo $organization; ?>" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<div class="form-group">
+							<label>Name</label>
+							<input type ="text" name="edit_realname" value="<?php echo $realname; ?>" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type ="email" name="edit_email" value="<?php echo $email; ?>" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Verified</label>
+							<select name="edit_verified" class="form-control" required>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<hr>
+							<input type ="hidden" value="<?php echo $_GET['edit_id']?>" name="edit_user_id">
+							<input type ="submit" value="Edit Complete" name="edit_user" class="btn btn-submit">
+						</div>
+					</div>
+	 			</form>
 	 			
  	 		<?php } else { ?> 
 
 
- 	 		<form class="col-md-6" method="post">
-	 			<div class="form-group">
-	 				<label>Username</label>
-	 				<input type ="text" name="username" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Password</label>
-	 				<input type ="password" name="password" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Email</label>
-	 				<input type ="email" name="email" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Contact Number</label>
-	 				<input type ="text" name="contactnum" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Verified</label>
-	 				<select class="form-control" name="verified" required>
-	 						<option value="1">Yes</option>
-	 						<option value="0">No</option>
-	 				</select>
-	 			</div>
-	 			<div class="form-group">
-	 				<label>Name</label>
-	 				<input type ="text" name="realname" class="form-control" required>
-	 			</div>
-	 			<div class="form-group">
-	 				<input type ="submit" name="submit_user" class="btn btn-primary">
-	 			</div>
+ 	 		<form method="post">
+			  <div class="row row-grid">
+					<div class="form-group col-md-6">
+						<div class="form-group">
+							<label>Username</label>
+							<input type ="text" name="username" placeholder="Username" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type ="password" name="password" placeholder="Password" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Contact Number</label>
+							<input type ="text" name="contactnum" placeholder="Contact Number" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Organization</label>
+							<input type ="text" name="organization" placeholder="Organization" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-group col md-6">
+						<div class="form-group">
+							<label>Name</label>
+							<input type ="text" name="realname" placeholder="Name" class="form-control" required>
+						</div>
+						
+						<div class="form-group">
+							<label>Email</label>
+							<input type ="email" name="email" placeholder="Email" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Verified</label>
+							<select class="form-control" name="verified" required>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+							</select>
+						</div>
+						<div class="form-group">
+						<hr>
+							<input type ="submit" name="submit_user" class="btn btn-submit">
+						</div>
+					</div>
 	 		</form>
 
 	 	<?php } 
 
-	 			$sql = "SELECT * FROM members";
+	 			$sql = "SELECT * FROM members ORDER BY organization, realname";
 				$run = mysqli_query($conn, $sql);
 	
 				echo "
@@ -140,10 +170,9 @@
 						<thead>
 							<tr>
 								<th>Username</th>
-								<th>Password</th>
 								<th>Email</th>
 								<th>Contact Number</th>
-								<th>Verified</th>
+								<th>Organization</th>
 								<th>Name</th>
 								<th>Edit</th>
 								<th>Delete</th>
@@ -156,13 +185,12 @@
 				echo "
 					<tr>
 						<td>$rows[username]</td>
-						<td>$rows[password]</td>
 						<td>$rows[email]</td>
 						<td>$rows[contactnum]</td>
-						<td>$rows[verified]</td>
+						<td>$rows[organization]</td>
 						<td>$rows[realname]</td>
-						<td><a href='users.php?edit_id=$rows[id]' class='btn btn-primary'>Edit</a></td>
-						<td><a href='users.php?del_id=$rows[id]' class='btn btn-secondary'>Delete</a></td>
+						<td><a href='users.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+						<td><a href='users.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 					</tr>
 				";
 		
@@ -192,10 +220,11 @@
 		$username = mysqli_real_escape_string($conn, strip_tags($_POST['username']));
 		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		$email = mysqli_real_escape_string($conn, strip_tags($_POST['email']));
+		$organization = mysqli_real_escape_string($conn, strip_tags($_POST['organization']));
 		$contactnum = mysqli_real_escape_string($conn, strip_tags($_POST['contactnum']));
 		$verified = mysqli_real_escape_string($conn, strip_tags($_POST['verified']));
 		$realname = mysqli_real_escape_string($conn, strip_tags($_POST['realname']));
-		$ins_sql2 = "INSERT INTO members (username, password, email, contactnum, verified, realname) VALUES ('$username', '$password', '$email', '$contactnum', '$verified', '$realname')";
+		$ins_sql2 = "INSERT INTO members (username, password, email, organization, contactnum, verified, realname) VALUES ('$username', '$password', '$email', '$organization', '$contactnum', '$verified', '$realname')";
 		
 		if (mysqli_query($conn, $ins_sql2)) { ?>
 			<script>window.location = "users.php";</script>
@@ -218,11 +247,12 @@
 		$edit_username = mysqli_real_escape_string($conn, strip_tags($_POST['edit_username']));
 		$edit_password = password_hash($_POST['edit_password'], PASSWORD_DEFAULT);
 		$edit_email = mysqli_real_escape_string($conn, strip_tags($_POST['edit_email']));
+		$edit_organization = mysqli_real_escape_string($conn, strip_tags($_POST['edit_organization']));
 		$edit_contactnum = mysqli_real_escape_string($conn, strip_tags($_POST['edit_contactnum']));
 		$edit_verified = mysqli_real_escape_string($conn, strip_tags($_POST['edit_verified']));
 		$edit_realname = mysqli_real_escape_string($conn, strip_tags($_POST['edit_realname']));
 		$edit_id = $_POST['edit_user_id'];
-		$edit_sql = "UPDATE members SET username = '$edit_username', password = '$edit_password', email = '$edit_email', contactnum = '$edit_contactnum', verified = '$edit_verified', realname = '$edit_realname' WHERE id = '$edit_id' ";
+		$edit_sql = "UPDATE members SET username = '$edit_username', password = '$edit_password', email = '$edit_email', organization='$edit_organization', contactnum = '$edit_contactnum', verified = '$edit_verified', realname = '$edit_realname' WHERE id = '$edit_id' ";
 		if(mysqli_query($conn, $edit_sql)) { ?> 
 			<script>window.location = 'users.php';</script>
 		<?php } 

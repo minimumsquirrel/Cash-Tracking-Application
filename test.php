@@ -42,6 +42,17 @@ echo $_SERVER["REMOTE_ADDR"];
 <?php 
 echo $_SESSION['access_level'];
 ?>
+<br></br>
+
+<?php 
+echo $store_organization;
+?>
+
+<br> </br>
+
+<?php 
+echo $user_organization;
+?>
 
 	  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.2.4.min.js"></script>

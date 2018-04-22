@@ -94,7 +94,7 @@
 								<?Php
 
 								
-								$query2="SELECT DISTINCT store_name,store_num FROM stores order by store_name"; 
+								$query2="SELECT DISTINCT store_name,store_num FROM stores WHERE store_organization = '$user_organization' order by store_name"; 
 														
 								//First drop down box
 								echo "<select action='employeenamedd.php' class='form-control' name='store_num' onchange=\"reload(this.form)\"><option value=''>Select one</option>";

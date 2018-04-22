@@ -113,7 +113,7 @@
 					<div class="form-group col-md-6">
 						<div class="form-group">
 							<label>Store Number</label>
-							<input type ="text" name="edit_store_num" value="<?php echo $store_num; ?>" class="form-control" required>
+							<input type ="text" name="edit_store_num" value="<?php echo $store_num; ?>" class="form-control" disabled>
 						</div>
 						<div class="form-group">
 							<label>Employee Name (Last,First)</label>
@@ -195,7 +195,7 @@
 								<?Php
 
 								
-								$query2="SELECT DISTINCT store_name,store_num FROM stores order by store_name"; 
+								$query2="SELECT DISTINCT store_name,store_num FROM stores WHERE store_organization = '$user_organization' order by store_name"; 
 														
 								//First drop down box
 								echo "<select action='employeenamedd.php' class='form-control' name='store_num' onchange=\"reload(this.form)\"><option value=''>Select one</option>";

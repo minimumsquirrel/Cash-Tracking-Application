@@ -109,12 +109,11 @@
 
  		<h3 class='col-md-6'>Edit</h3>
 	 		<form method="post">
-				<dic class="row row-grid">
+				<div class="row row-grid">
 					<div class="form-group col-md-6">
-						
 							<div class="form-group">
 								<label>Store Number</label>
-								<input type ="text" name="edit_store_num" value="<?php echo $store_num; ?>" class="form-control" required>
+								<input type ="text" name="edit_store_num" value="<?php echo $store_num; ?>" class="form-control" disabled>
 							</div>
 							<div class="form-group">
 								<label>Employee Name (Last,First)</label>
@@ -183,7 +182,7 @@
 								<?Php
 
 								
-								$query2="SELECT DISTINCT store_name,store_num FROM stores order by store_name"; 
+								$query2="SELECT DISTINCT store_name,store_num FROM stores WHERE store_organization = '$user_organization' order by store_name"; 
 														
 								//First drop down box
 								echo "<select action='employeenamedd.php' class='form-control' name='store_num' onchange=\"reload(this.form)\" required><option value=''>Select one</option>";
@@ -201,7 +200,7 @@
 
 								?>
 													
-							</div>
+						</div>
 						<div id="employee_name" class="form-group">
 								<label>Employee Name (Last,First)</label>
 
@@ -367,7 +366,7 @@
 		$cash = mysqli_real_escape_string($conn, strip_tags($_POST['cash']));
 		$refunds = mysqli_real_escape_string($conn, strip_tags($_POST['refunds']));
 		$refunds_num = mysqli_real_escape_string($conn, strip_tags($_POST['refunds_num']));
-		$ins_sql = "INSERT INTO dailyentry (store_num, employee_name, date, date_entered, tred, tred_num, promo, promo_num, cash, refunds, refunds_num, entered_ip) VALUES ('$store_num', '$employee_name', '$date', '$currentday', '$tred', '$tred_num', '$promo', '$promo_num', '$cash', '$refunds', '$refunds_num', '$entered_ip')";
+		$ins_sql = "INSERT INTO dailyentry (store_num, employee_name, date, date_entered, tred, tred_num, promo, promo_num, cash, refunds, refunds_num, entered_ip, organization) VALUES ('$store_num', '$employee_name', '$date', '$currentday', '$tred', '$tred_num', '$promo', '$promo_num', '$cash', '$refunds', '$refunds_num', '$entered_ip', '$user_organization')";
 		
 		if (mysqli_query($conn, $ins_sql)) { ?>
 			<script>window.location = "dailyentry.php";</script>

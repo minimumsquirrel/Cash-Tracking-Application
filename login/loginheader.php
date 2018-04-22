@@ -16,6 +16,16 @@ $sql = "SELECT * FROM members WHERE username = '$_SESSION[username]'";
 
     $_SESSION['access_level'] = $user_access;
 
+$sql2 = "SELECT * FROM members WHERE username = '$_SESSION[username]'";
+   $run2 = mysqli_query($conn, $sql2);
+   while ( $rows2 = mysqli_fetch_assoc($run2) ) {
+     $user_organization = $rows2['organization'];
+    
+    }
+
+    $_SESSION['user_organization'] = $user_organization;
+
+
 if (!isset($_SESSION['username'])) {
     return header("location:login/main_login.php");
 }
