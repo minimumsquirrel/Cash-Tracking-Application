@@ -5,6 +5,13 @@
   include "globalformat.php";
  	include "header.php";
   
+  if($_SESSION['access_level'] != 'admin') {
+    if($_SESSION['access_level'] != 'superadmin') {
+      // your variable does not equal 'yes' do something
+      return header("location:index.php");
+      exit;
+    }
+  }
    
  ?>
   

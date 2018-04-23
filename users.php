@@ -5,17 +5,13 @@
   	include "header.php";
   	include "globalformat.php";
 	 
-	if($_SESSION['access_level'] == 'admin') {
-		// your variable equals 'yes' do something
-	}
-	
-	if($_SESSION['access_level'] != 'admin') {
+	if($_SESSION['access_level'] != 'superadmin') {
 		// your variable does not equal 'yes' do something
 		return header("location:index.php");
 		exit;
-	}
-	 
- ?>
+		}
+	
+?>
   
 <html lang="en">
   <head>
@@ -62,7 +58,8 @@
 						$organization = $rows['organization'];
  						$contactnum = $rows['contactnum'];
  						$verified = $rows['verified'];
- 						$realname = $rows['realname'];
+						$realname = $rows['realname'];
+						$default_store = $rows['default_store'];
  						
  					}
  					?>
@@ -104,7 +101,10 @@
 									<option value="0">No</option>
 							</select>
 						</div>
-						
+						<div class="form-group">
+							<label>Default Store</label>
+							<input type ="text" name="edit_default_store" value="<?php echo $default_store; ?>" class="form-control" required>
+						</div>
 						<div class="form-group">
 							<hr>
 							<input type ="hidden" value="<?php echo $_GET['edit_id']?>" name="edit_user_id">
@@ -154,6 +154,10 @@
 							</select>
 						</div>
 						<div class="form-group">
+							<label>Default Store</label>
+							<input type ="text" name="default_store" placeholder="Default Store" class="form-control" required>
+						</div>
+						<div class="form-group">
 						<hr>
 							<input type ="submit" name="submit_user" class="btn btn-submit">
 						</div>
@@ -162,11 +166,11 @@
 
 	 	<?php } 
 
-	 			$sql = "SELECT * FROM members ORDER BY organization, realname";
+	 			$sql = "SELECT * FROM members ORDER BY organization, username";
 				$run = mysqli_query($conn, $sql);
 	
 				echo "
-					<table class='table'>
+					<table class='table table-striped'>
 						<thead>
 							<tr>
 								<th>Username</th>
@@ -224,7 +228,8 @@
 		$contactnum = mysqli_real_escape_string($conn, strip_tags($_POST['contactnum']));
 		$verified = mysqli_real_escape_string($conn, strip_tags($_POST['verified']));
 		$realname = mysqli_real_escape_string($conn, strip_tags($_POST['realname']));
-		$ins_sql2 = "INSERT INTO members (username, password, email, organization, contactnum, verified, realname) VALUES ('$username', '$password', '$email', '$organization', '$contactnum', '$verified', '$realname')";
+		$default_store = mysqli_real_escape_string($conn, strip_tags($_POST['default_store']));
+		$ins_sql2 = "INSERT INTO members (username, password, email, organization, contactnum, verified, realname, default_store) VALUES ('$username', '$password', '$email', '$organization', '$contactnum', '$verified', '$realname', $'$default_store')";
 		
 		if (mysqli_query($conn, $ins_sql2)) { ?>
 			<script>window.location = "users.php";</script>
@@ -251,8 +256,9 @@
 		$edit_contactnum = mysqli_real_escape_string($conn, strip_tags($_POST['edit_contactnum']));
 		$edit_verified = mysqli_real_escape_string($conn, strip_tags($_POST['edit_verified']));
 		$edit_realname = mysqli_real_escape_string($conn, strip_tags($_POST['edit_realname']));
+		$edit_default_store = mysqli_real_escape_string($conn, strip_tags($_POST['edit_default_store']));
 		$edit_id = $_POST['edit_user_id'];
-		$edit_sql = "UPDATE members SET username = '$edit_username', password = '$edit_password', email = '$edit_email', organization='$edit_organization', contactnum = '$edit_contactnum', verified = '$edit_verified', realname = '$edit_realname' WHERE id = '$edit_id' ";
+		$edit_sql = "UPDATE members SET username = '$edit_username', password = '$edit_password', email = '$edit_email', organization= '$edit_organization', contactnum = '$edit_contactnum', verified = '$edit_verified', realname = '$edit_realname', default_store = '$edit_default_store' WHERE id = '$edit_id' ";
 		if(mysqli_query($conn, $edit_sql)) { ?> 
 			<script>window.location = 'users.php';</script>
 		<?php } 
