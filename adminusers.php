@@ -193,8 +193,8 @@
 						<td>$rows[contactnum]</td>
 						<td>$rows[organization]</td>
 						<td>$rows[realname]</td>
-						<td><a href='users.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
-						<td><a href='users.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+						<td><a href='adminusers.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+						<td><a href='adminusers.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 					</tr>
 				";
 		
@@ -232,7 +232,7 @@
 		$ins_sql2 = "INSERT INTO members (username, password, email, organization, contactnum, verified, realname, default_store) VALUES ('$username', '$password', '$email', '$organization', '$contactnum', '$verified', '$realname', $'$default_store')";
 		
 		if (mysqli_query($conn, $ins_sql2)) { ?>
-			<script>window.location = "users.php";</script>
+			<script>window.location = "adminusers.php";</script>
 		<?php }
 
 	}
@@ -242,7 +242,7 @@
 	if( isset($_GET['del_id']) ) {
 		$del_sql = "DELETE FROM members WHERE id = '$_GET[del_id]' ";
 		if(mysqli_query($conn, $del_sql)) { ?>
-			<script>window.location = "users.php";</script>
+			<script>window.location = "adminusers.php";</script>
 	<?php }	
 
 	}
@@ -260,7 +260,7 @@
 		$edit_id = $_POST['edit_user_id'];
 		$edit_sql = "UPDATE members SET username = '$edit_username', password = '$edit_password', email = '$edit_email', organization= '$edit_organization', contactnum = '$edit_contactnum', verified = '$edit_verified', realname = '$edit_realname', default_store = '$edit_default_store' WHERE id = '$edit_id' ";
 		if(mysqli_query($conn, $edit_sql)) { ?> 
-			<script>window.location = 'users.php';</script>
+			<script>window.location = 'adminusers.php';</script>
 		<?php } 
 
 	}

@@ -47,8 +47,9 @@
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item">User: <?php echo $_SESSION['username']; ?></a>
                             <a class="dropdown-item" href="globalformatinput.php">Settings</a>
-                            <a class="dropdown-item" href="stores.php">Stores</a>
-                            <a class="dropdown-item" href="users.php">Users</a>
+                            <a class="dropdown-item" href="admindailyentry.php">Entry Review</a>
+                            <a class="dropdown-item" href="adminstores.php">Stores</a>
+                            <a class="dropdown-item" href="adminusers.php">Users</a>
                             <a class="dropdown-item" href="changelog.php">Changelog</a>
                           </div>
                         </li>

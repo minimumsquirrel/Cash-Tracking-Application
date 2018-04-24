@@ -189,8 +189,8 @@
 							<td>$rows[store_organization]</td>
 							<td>$rows[variable_name]</td>
 							<td>$rows[email_receive]</td>
-							<td><a href='stores.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
-							<td><a href='stores.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+							<td><a href='adminstores.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+							<td><a href='adminstores.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 						</tr>
 					";
 			
@@ -225,7 +225,7 @@
 		$ins_sql = "INSERT INTO stores (store_num, store_name, store_email, store_phone, store_organization, variable_name, email_receive, entered_ip, date_entered) VALUES ('$store_num', '$store_name', '$store_email', '$store_phone', '$store_organization', '$variable_name', '$email_receive', '$entered_ip', '$currentday')";
 		
 		if (mysqli_query($conn, $ins_sql)) { ?>
-			<script>window.location = "stores.php";</script>
+			<script>window.location = "adminstores.php";</script>
 		<?php }
 
 	}
@@ -235,7 +235,7 @@
 	if( isset($_GET['del_id']) ) {
 		$del_sql = "DELETE FROM stores WHERE id = '$_GET[del_id]' ";
 		if(mysqli_query($conn, $del_sql)) { ?>
-			<script>window.location = "stores.php";</script>
+			<script>window.location = "adminstores.php";</script>
 	<?php }	
 
 	}
@@ -254,7 +254,7 @@
 		$edit_id = $_POST['edit_user_id'];
 		$edit_sql = "UPDATE stores SET store_num = '$edit_store_num', store_name = '$edit_store_name', store_email = '$edit_store_email', store_phone = '$edit_store_phone', store_organization = '$edit_store_organization', variable_name = '$edit_variable_name', email_receive = '$edit_email_receive', edited_ip = '$edited_ip', date_edited = '$currentday' WHERE id = '$edit_id' ";
 		if(mysqli_query($conn, $edit_sql)) { ?> 
-			<script>window.location = 'stores.php';</script>
+			<script>window.location = 'adminstores.php';</script>
 		<?php } 
 
 	}
