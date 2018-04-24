@@ -70,11 +70,11 @@
 					<div class="form-group col-md-6">
 						<div class="form-group">
 							<label>Username</label>
-							<input type ="text" name="edit_username" value="<?php echo $username; ?>" class="form-control" required>
+							<input type ="text" name="edit_username" autocomplete="off" value="<?php echo $username; ?>" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input type ="password" name="edit_password" value="<?php echo $password; ?>" class="form-control" required>
+							<input type ="password" name="edit_password" autocomplete="off" value="<?php echo $password; ?>" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Contact Number</label>
@@ -121,11 +121,11 @@
 					<div class="form-group col-md-6">
 						<div class="form-group">
 							<label>Username</label>
-							<input type ="text" name="username" placeholder="Username" class="form-control" required>
+							<input type ="text" name="username" autocomplete="off" placeholder="Username" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input type ="password" name="password" placeholder="Password" class="form-control" required>
+							<input type ="password" name="password" autocomplete="off" placeholder="Password" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Contact Number</label>

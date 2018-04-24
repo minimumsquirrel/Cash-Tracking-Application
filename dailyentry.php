@@ -393,7 +393,7 @@
 		$cash = mysqli_real_escape_string($conn, strip_tags($_POST['cash']));
 		$refunds = mysqli_real_escape_string($conn, strip_tags($_POST['refunds']));
 		$refunds_num = mysqli_real_escape_string($conn, strip_tags($_POST['refunds_num']));
-		$ins_sql = "INSERT INTO dailyentry (store_num, employee_name, date, date_entered, tred, tred_num, promo, promo_num, cash, refunds, refunds_num, entered_ip, organization) VALUES ('$store_num', '$employee_name', '$date', '$currentday', '$tred', '$tred_num', '$promo', '$promo_num', '$cash', '$refunds', '$refunds_num', '$entered_ip', '$user_organization')";
+		$ins_sql = "INSERT INTO dailyentry (store_num, employee_name, date, date_entered, tred, tred_num, promo, promo_num, cash, refunds, refunds_num, entered_ip, organization, original_cash, original_tred, original_tred_num, original_promo, original_promo_num, original_refunds, original_refunds_num, original_date) VALUES ('$store_num', '$employee_name', '$date', '$currentday', '$tred', '$tred_num', '$promo', '$promo_num', '$cash', '$refunds', '$refunds_num', '$entered_ip', '$user_organization', '$cash', '$tred', '$tred_num', '$promo', '$promo_num', '$refunds', '$refunds_num', '$date')";
 		
 		if (mysqli_query($conn, $ins_sql)) { ?>
 			<script>window.location = "dailyentry.php";</script>
