@@ -51,6 +51,29 @@
 
 <!-- End of script to check before deleting entries in the data table -->
 
+<?php 
+
+	//Check to make sure store number access is in same group as user group
+
+	$stored_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
+	$sql_organization = "SELECT * FROM stores WHERE store_num = '$stored_num'";
+		$run_organization = mysqli_query($conn, $sql_organization);
+		while ( $rows = mysqli_fetch_assoc($run_organization) ) {
+			$store_organization = $rows['store_organization'];
+			$store_name = $rows['store_name'];
+	}
+	
+	if($user_organization != $store_organization) {
+		// your variable does not equal 'yes' do something
+		return header("location:index.php");
+		exit;
+	}
+
+	//End of Check
+
+?>
+
+
   </head>
  	<body>
  		<div class="container">
@@ -58,7 +81,7 @@
 				<br></br> 
 				<h3>
 					Cash Tracking Program:
-					<small class="text-muted">Employees</small>
+					<small class="text-muted">Employees - <?php echo $store_name ?></small>
 				</h3>
 				<hr>
 			</div>
@@ -196,9 +219,7 @@
 		 
 		 
 				$sort_employeename = isset($_POST['sort_employeename']) ? $_POST['sort_employeename']:'employee_name';
-				
-				$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$username_data;
-	 			$sql = "SELECT id, store_num, employee_name, date_hired, active, DATEDIFF('$currentday', date_hired) AS date_worked FROM employees WHERE store_num = '$store_num' AND organization = '$user_organization' ORDER BY $sort_employeename";
+				$sql = "SELECT id, store_num, employee_name, date_hired, active, DATEDIFF('$currentday', date_hired) AS date_worked FROM employees WHERE store_num = '$stored_num' AND organization = '$user_organization' ORDER BY $sort_employeename";
 				$run = mysqli_query($conn, $sql);
 	
 				echo "

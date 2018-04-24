@@ -76,8 +76,10 @@
 			  $run_organization = mysqli_query($conn, $sql_organization);
 			  while ( $rows = mysqli_fetch_assoc($run_organization) ) {
 				  $store_organization = $rows['store_organization'];
+				  $store_name = $rows['store_name'];
 		  }
-		  
+		
+		 
 		  if($user_organization != $store_organization) {
 			// your variable does not equal 'yes' do something
 			return header("location:index.php");

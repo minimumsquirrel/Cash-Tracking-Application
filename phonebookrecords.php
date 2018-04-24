@@ -62,6 +62,7 @@
 			$run_organization = mysqli_query($conn, $sql_organization);
 			while ( $rows = mysqli_fetch_assoc($run_organization) ) {
 				$store_organization = $rows['store_organization'];
+				$store_name = $rows['store_name'];
 		}
 
 		if($user_organization != $store_organization) {
@@ -97,7 +98,7 @@
 		 	<div class="col-md-12">
 				<h3>
 					Phonebook:
-					<small class="text-muted">Records</small>
+					<small class="text-muted">Records - <?php echo $store_name ?></small>
 				</h3>
 				<hr>
 			</div>
