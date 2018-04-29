@@ -170,7 +170,7 @@
 				$run = mysqli_query($conn, $sql);
 	
 				echo "
-					<table class='table table-striped'>
+					<table class='table table-striped table-hover table-sm w-auto'>
 						<thead>
 							<tr>
 								<th>Username</th>
@@ -229,7 +229,7 @@
 		$verified = mysqli_real_escape_string($conn, strip_tags($_POST['verified']));
 		$realname = mysqli_real_escape_string($conn, strip_tags($_POST['realname']));
 		$default_store = mysqli_real_escape_string($conn, strip_tags($_POST['default_store']));
-		$ins_sql2 = "INSERT INTO members (username, password, email, organization, contactnum, verified, realname, default_store) VALUES ('$username', '$password', '$email', '$organization', '$contactnum', '$verified', '$realname', $'$default_store')";
+		$ins_sql2 = "INSERT INTO members (username, password, email, organization, contactnum, verified, realname, default_store) VALUES ('$username', '$password', '$email', '$organization', '$contactnum', '$verified', '$realname', '$default_store')";
 		
 		if (mysqli_query($conn, $ins_sql2)) { ?>
 			<script>window.location = "adminusers.php";</script>

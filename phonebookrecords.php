@@ -282,7 +282,7 @@
 				$run = mysqli_query($conn, $sql);
 
 				echo "
-				<table class='table'>
+				<table class='table table-hover table-sm w-auto'>
 					<thead>
 						<tr>
 							<hr>
@@ -301,13 +301,13 @@
 			while($rows = mysqli_fetch_assoc($run) ) {
 			echo "
 				<tr>
-					<td>$rows[contact_type]</td>
-					<td>$rows[name]</td>
-					<td>$rows[company_name]</td>
-					<td>$rows[phone_num]</td>
-					<td>$rows[comments]</td>						
-					<td><a href='phonebookrecords.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
-					<td><a href='phonebookrecords.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+					<td class='align-middle'>$rows[contact_type]</td>
+					<td class='align-middle'>$rows[name]</td>
+					<td class='align-middle'>$rows[company_name]</td>
+					<td class='align-middle'>$rows[phone_num]</td>
+					<td class='align-middle'>$rows[comments]</td>						
+					<td class='align-middle'><a href='phonebookrecords.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+					<td class='align-middle'><a href='phonebookrecords.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 				</tr>
 			";
 	

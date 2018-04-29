@@ -259,7 +259,7 @@
 				$run = mysqli_query($conn, $sql);
 
 				echo "
-					<table class='table'>
+					<table class='table table-hover table-sm w-auto'>
 						<thead>
 							<tr>
 								<hr>	
@@ -269,7 +269,6 @@
 								<th>Email</th>
 								<th>Phone Number</th>
 								<th>Store Number</th>
-								<th>Comments</th>								
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
@@ -280,15 +279,14 @@
 				while($rows = mysqli_fetch_assoc($run) ) {
 				echo "
 					<tr>
-						<td>$rows[contact_type]</td>
-						<td>$rows[name]</td>
-						<td>$rows[company_name]</td>
-						<td>$rows[email]</td>
-						<td>$rows[phone_num]</td>
-						<td>$rows[store_num]</td>
-						<td>$rows[comments]</td>						
-						<td><a href='phonebookentry.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
-						<td><a href='phonebookentry.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+						<td class='align-middle'>$rows[contact_type]</td>
+						<td class='align-middle'>$rows[name]</td>
+						<td class='align-middle'>$rows[company_name]</td>
+						<td class='align-middle'>$rows[email]</td>
+						<td class='align-middle'>$rows[phone_num]</td>
+						<td class='align-middle'>$rows[store_num]</td>
+						<td class='align-middle'><a href='phonebookentry.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+						<td class='align-middle'><a href='phonebookentry.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 					</tr>
 				";
 		

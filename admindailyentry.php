@@ -304,7 +304,7 @@
 				$run = mysqli_query($conn, $sql);
 
 				echo "
-					<table class='table'>
+					<table class='table table-hover table-sm w-auto'>
 						<thead>
 							<tr>
 								<hr>
@@ -328,18 +328,18 @@
 				while($rows = mysqli_fetch_assoc($run) ) {
 				echo "
 					<tr>
-						<td>$rows[store_num]</td>
-						<td>$rows[employee_name]</td>
-						<td>$rows[date]</td>
-						<td>$rows[cash]</td>
-						<td>$rows[refunds]</td>
-						<td>$rows[refunds_num]</td>
-						<td>$rows[promo]</td>
-						<td>$rows[promo_num]</td>
-						<td>$rows[tred]</td>
-						<td>$rows[tred_num]</td>												
-						<td><a href='admindailyentry.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
-						<td><a href='admindailyentry.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+						<td class='align-middle'>$rows[store_num]</td>
+						<td class='align-middle'>$rows[employee_name]</td>
+						<td class='align-middle'>$rows[date]</td>
+						<td class='align-middle'>$rows[cash]</td>
+						<td class='align-middle'>$rows[refunds]</td>
+						<td class='align-middle'>$rows[refunds_num]</td>
+						<td class='align-middle'>$rows[promo]</td>
+						<td class='align-middle'>$rows[promo_num]</td>
+						<td class='align-middle'>$rows[tred]</td>
+						<td class='align-middle'>$rows[tred_num]</td>												
+						<td class='align-middle'><a href='admindailyentry.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+						<td class='align-middle'><a href='admindailyentry.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 					</tr>
 				";
 		

@@ -212,7 +212,7 @@
 				
 				echo "
 					
-					<table class='table col-md-12'>
+					<table class='table table-sm col-md-12'>
 						<thead>
 							<tr>
 								<hr>
@@ -262,7 +262,7 @@
 				
 				echo "
 					
-					<table class='table table-striped'>
+					<table class='table table-striped w-auto'>
 						<thead>
 							<tr>
 								<hr>
@@ -287,16 +287,16 @@
 				echo "
 					<tr>
 						
-						<td>$rows2[employee_name]</td>
-						<td>$rows2[value_cash]</td>
-						<td>$rows2[value_refunds]</td>
-						<td>$rows2[value_refundsnum]</td>
-						<td>$rows2[value_refundsavg]</td>
-						<td>$rows2[value_promo]</td>
-						<td>$rows2[value_promoavg]</td>
-						<td>$rows2[value_tred]</td>
-						<td>$rows2[value_trednum]</td>
-						<td>$rows2[value_tredavg]</td>
+						<td class='align-middle'>$rows2[employee_name]</td>
+						<td class='align-middle'>$rows2[value_cash]</td>
+						<td class='align-middle'>$rows2[value_refunds]</td>
+						<td class='align-middle'>$rows2[value_refundsnum]</td>
+						<td class='align-middle'>$rows2[value_refundsavg]</td>
+						<td class='align-middle'>$rows2[value_promo]</td>
+						<td class='align-middle'>$rows2[value_promoavg]</td>
+						<td class='align-middle'>$rows2[value_tred]</td>
+						<td class='align-middle'>$rows2[value_trednum]</td>
+						<td class='align-middle'>$rows2[value_tredavg]</td>
 						
 					</tr>
 				";

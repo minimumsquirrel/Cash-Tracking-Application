@@ -223,7 +223,7 @@
 				$run = mysqli_query($conn, $sql);
 	
 				echo "
-					<table class='table table-striped'>
+					<table class='table table-striped table-hover table-sm w-auto'>
 						<thead>
 							<tr>
 								<hr>
@@ -243,13 +243,13 @@
 					while($rows = mysqli_fetch_assoc($run) ) {
 					echo "
 						<tr>
-							<td>$rows[store_num]</td>
-							<td>$rows[employee_name]</td>
-							<td>$rows[date_hired]</td>
-							<td>$rows[date_worked]</td>
-							<td>$rows[active]</td>
-							<td><a href='employees.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
-							<td><a href='employees.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+							<td class='align-middle'>$rows[store_num]</td>
+							<td class='align-middle'>$rows[employee_name]</td>
+							<td class='align-middle'>$rows[date_hired]</td>
+							<td class='align-middle'>$rows[date_worked]</td>
+							<td class='align-middle'>$rows[active]</td>
+							<td class='align-middle'><a href='employees.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+							<td class='align-middle'><a href='employees.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 						</tr>
 					";
 			

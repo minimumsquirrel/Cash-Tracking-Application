@@ -41,3 +41,7 @@
 .table-striped>tbody>tr:nth-child(odd)>th {
    background-color: rgb(216, 224, 252); 
  }
+
+table td {
+  vertical-align: middle !important;
+}

@@ -487,7 +487,7 @@
 				$run = mysqli_query($conn,$totalall);
 				
 				echo "
-					<table class='table col-md-12'>
+					<table class='table table-sm col-md-12'>
 						<thead>
 							<tr>
 								<hr>
@@ -508,15 +508,15 @@
 				while($rows = mysqli_fetch_array($run) ) {
 				echo "
 					<tr>
-						<td>$rows[value_cash]</td>
-						<td>$rows[value_refunds]</td>
-						<td>$rows[value_refundsnum]</td>
-						<td>$rows[value_refundsavg]</td>
-						<td>$rows[value_promo]</td>
-						<td>$rows[value_promoavg]</td>
-						<td>$rows[value_tred]</td>
-						<td>$rows[value_trednum]</td>
-						<td>$rows[value_tredavg]</td>
+						<td class='align-middle'>$rows[value_cash]</td>
+						<td class='align-middle'>$rows[value_refunds]</td>
+						<td class='align-middle'>$rows[value_refundsnum]</td>
+						<td class='align-middle'>$rows[value_refundsavg]</td>
+						<td class='align-middle'>$rows[value_promo]</td>
+						<td class='align-middle'>$rows[value_promoavg]</td>
+						<td class='align-middle'>$rows[value_tred]</td>
+						<td class='align-middle'>$rows[value_trednum]</td>
+						<td class='align-middle'>$rows[value_tredavg]</td>
 						
 						
 					</tr>
@@ -538,7 +538,7 @@
 				$run2 = mysqli_query($conn, $sql2);
 				
 				echo "
-					<table class='table'>
+					<table class='table table-hover table-sm w-auto'>
 						<thead>
 							<tr>
 								<hr>
@@ -563,19 +563,19 @@
 				while($rows2 = mysqli_fetch_assoc($run2) ) {
 				echo "
 					<tr>
-						<td>$rows2[store_num]</td>
-						<td>$rows2[employee_name]</td>
-						<td>$rows2[date]</td>
-						<td>$rows2[cash]</td>					
-						<td>$rows2[refunds]</td>
-						<td>$rows2[refunds_num]</td>
-						<td>$rows2[promo]</td>
-						<td>$rows2[promo_num]</td>
-						<td>$rows2[tred]</td>
-						<td>$rows2[tred_num]</td>
-						<td>$rows2[flagged]</td>
-						<td><a href='records.php?edit_id=$rows2[id]' class='btn btn-flag'>Flag/Edit</a></td>
-						<td><a href='records.php?del_id=$rows2[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+						<td class='align-middle'>$rows2[store_num]</td>
+						<td class='align-middle'>$rows2[employee_name]</td>
+						<td class='align-middle'>$rows2[date]</td>
+						<td class='align-middle'>$rows2[cash]</td>					
+						<td class='align-middle'>$rows2[refunds]</td>
+						<td class='align-middle'>$rows2[refunds_num]</td>
+						<td class='align-middle'>$rows2[promo]</td>
+						<td class='align-middle'>$rows2[promo_num]</td>
+						<td class='align-middle'>$rows2[tred]</td>
+						<td class='align-middle'>$rows2[tred_num]</td>
+						<td class='align-middle'>$rows2[flagged]</td>
+						<td class='align-middle'><a href='records.php?edit_id=$rows2[id]' class='btn btn-flag'>Flag/Edit</a></td>
+						<td class='align-middle'><a href='records.php?del_id=$rows2[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 					</tr>
 				";
 		
