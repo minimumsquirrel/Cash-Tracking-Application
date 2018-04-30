@@ -188,13 +188,13 @@
 				while($rows = mysqli_fetch_assoc($run) ) {
 				echo "
 					<tr>
-						<td>$rows[username]</td>
-						<td>$rows[email]</td>
-						<td>$rows[contactnum]</td>
-						<td>$rows[organization]</td>
-						<td>$rows[realname]</td>
-						<td><a href='adminusers.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
-						<td><a href='adminusers.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
+						<td class='align-middle'>$rows[username]</td>
+						<td class='align-middle'>$rows[email]</td>
+						<td class='align-middle'>$rows[contactnum]</td>
+						<td class='align-middle'>$rows[organization]</td>
+						<td class='align-middle'>$rows[realname]</td>
+						<td class='align-middle'><a href='adminusers.php?edit_id=$rows[id]' class='btn btn-submit'>Edit</a></td>
+						<td class='align-middle'><a href='adminusers.php?del_id=$rows[id]' class='btn btn-secondary' onclick='return checkDelete()'>Delete</a></td>
 					</tr>
 				";
 		

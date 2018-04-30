@@ -43,6 +43,16 @@
                    <ul class="nav navbar-nav navbar-right">
                     <ul class="nav nav-pills2">
                         <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="terms.php" role="button" aria-haspopup="true" aria-expanded="false">Agreements</a>
+                          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a class="dropdown-item" href="terms.php">Terms of Service</a>
+                            <a class="dropdown-item" href="privacy.php">Privacy Agreement</a>
+                          </div>
+                        </li>
+                    </ul>
+                   <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav nav-pills2">
+                        <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="changelog.php" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item">User: <?php echo $_SESSION['username']; ?></a>

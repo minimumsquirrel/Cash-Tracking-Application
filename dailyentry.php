@@ -134,7 +134,7 @@
 					}
  					?>
 
- 		<h3 class='col-md-6'>Edit</h3>
+ 		
 	 		<form method="post">
 				<div class="row row-grid">
 					<div class="form-group col-md-6">
@@ -281,31 +281,31 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Refunds</label>
-								<input type ="text" name="refunds" class="form-control" placeholder="Refunds" required>
+								<input type ="text" name="refunds" class="form-control" placeholder="Refund $" required>
 							</div>
 						<div class="form-group col-md-6">
 							<label>Number of Refunds</label>
-							<input type ="text" name="refunds_num" class="form-control" placeholder="Number of Refunds" required>
+							<input type ="text" name="refunds_num" class="form-control" placeholder="# of Refunds" required>
 						</div>
 						</div> 
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label>Promo</label>
-								<input type ="text" name="promo" class="form-control" placeholder="Promo" required>
+								<input type ="text" name="promo" class="form-control" placeholder="Promo $" required>
 							</div>
 							<div class="form-group col-md-6">
 								<label>Number of Promos</label>
-								<input type ="text" name="promo_num" class="form-control" placeholder="Number of Promos" required>
+								<input type ="text" name="promo_num" class="form-control" placeholder="# of Promos" required>
 							</div>
 						</div>
 						<div class="form-row">   
 							<div class="form-group col-md-6">
-								<label>T-Reds</label>
-								<input type ="text" name="tred" class="form-control" placeholder="T-Reds" required>
+								<label>Treds</label>
+								<input type ="text" name="tred" class="form-control" placeholder="Treds $" required>
 							</div>  
 							<div class="form-group col-md-6">
-								<label>Number of T-Reds</label>
-								<input type ="text" name="tred_num" class="form-control" placeholder="Number of T-Reds" required>
+								<label>Number of Treds</label>
+								<input type ="text" name="tred_num" class="form-control" placeholder="# of Treds" required>
 							</div>
 						</div>	 		 						 
 						<div class="form-group">
