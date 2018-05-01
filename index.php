@@ -54,4 +54,14 @@
  	</body>
 </html>
 
+<?php
 
+//Access Log Recording
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+
+  $ins_sql = "INSERT INTO access_logs (ip, username, page, selected_store, organization) VALUES ('$entered_ip', '$username_data', 'Index.php', '$default_store', '$user_organization')";
+  
+  mysqli_query($conn, $ins_sql);
+
+?>

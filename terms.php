@@ -135,4 +135,17 @@ phone.</p>
  	</body>
 </html>
 
+<?php
 
+//Access Log Recording
+
+$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$default_store;
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$ins_sql2 = isset($ins_sql) ? $ins_sql:'';
+
+
+  $ins_sql = "INSERT INTO access_logs (ip, username, page, selected_store, organization) VALUES ('$entered_ip', '$username_data', 'Terms.php', '$stored_num', '$user_organization')";
+
+mysqli_query($conn, $ins_sql);	
+
+?>

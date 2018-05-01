@@ -538,3 +538,17 @@
 		<?php } 
 
   }
+
+  //Access Log Recording
+
+	$store_num = isset($_GET['store_num']) ? $_GET['store_num']:$stored_num;
+	$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+	$ins_sql2 = isset($edit_sql) ? $edit_sql:'';
+	$query = mysqli_real_escape_string($conn, strip_tags($ins_sql2));
+	$edit_sql2 = isset($edit_sql2) ? $edit_sql2:'';
+	$edit = mysqli_real_escape_string($conn, strip_tags($edit_sql2));
+
+		$ins_sql = "INSERT INTO access_logs (ip, username, page, selected_store, query, edit, organization) VALUES ('$entered_ip', '$username_data', 'GlobalFormatInput.php', '$store_num', '$query', '$edit', '$user_organization')";
+    
+    mysqli_query($conn, $ins_sql);
+

@@ -632,4 +632,15 @@
 	}
 
 
+//Access Log Recording
+
+	$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+	$query = mysqli_real_escape_string($conn, strip_tags($total_query));
+	$edit_sql2 = isset($edit_sql) ? $edit_sql:'';
+	$edit = mysqli_real_escape_string($conn, strip_tags($edit_sql2));
+
+		$ins_sql = "INSERT INTO access_logs (ip, username, page, selected_store, query, edit, organization) VALUES ('$entered_ip', '$username_data', 'Records.php', '$stored_num', '$query', '$edit', '$user_organization')";
+    
+    mysqli_query($conn, $ins_sql);
+
 ?>

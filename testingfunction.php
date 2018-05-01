@@ -39,12 +39,10 @@
 	//Inserting new data
 
     $entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
-    $type = $email_report_type;
-		$ins_sql = "INSERT INTO email_reports (ip, type, date) VALUES ('$entered_ip', '$type', '$currentday')";
-		
-    if ($store10receive > "0") {
+    
+		$ins_sql = "INSERT INTO access_logs (ip, username, page, selected_store) VALUES ('$entered_ip', '$username_data', 'testingfunction', '$stored_num')";
     
     mysqli_query($conn, $ins_sql);
 
-    }
+
 	
