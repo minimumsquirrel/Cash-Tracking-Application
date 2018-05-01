@@ -3,7 +3,11 @@ session_start();
 if (isset($_SESSION['username'])) {
     header("location:../index.php");
 }
+
+include "sql_connection.php";
+	
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,3 +46,15 @@ if (isset($_SESSION['username'])) {
 
   </body>
 </html>
+
+<?php 
+
+//Access Log Recording
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+
+  $ins_sql = "INSERT INTO access_logs (ip, page) VALUES ('$entered_ip', 'Login.php')";
+  
+  mysqli_query($conn, $ins_sql);
+
+?>

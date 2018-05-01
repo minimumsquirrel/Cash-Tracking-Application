@@ -328,7 +328,7 @@ $entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"
 $query = mysqli_real_escape_string($conn, strip_tags($total_query));
 $edit_sql2 = isset($edit_sql) ? $edit_sql:'';
 
-	$ins_sql = "INSERT INTO access_logs (ip, username, page, selected_store, query, edit, organization) VALUES ('$entered_ip', '$username_data', 'Records.php', '$stored_num', '$query', '$user_organization')";
+	$ins_sql = "INSERT INTO access_logs (ip, username, page, selected_store, query, organization) VALUES ('$entered_ip', '$username_data', 'Records.php', '$stored_num', '$query', '$user_organization')";
 
 mysqli_query($conn, $ins_sql);
 
