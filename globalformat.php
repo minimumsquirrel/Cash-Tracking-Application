@@ -193,6 +193,11 @@
       $previousday = date("F j, Y", strtotime( '-1 days' ) );
       $previousmonth = date("F, Y", strtotime( '-1 month' ) );
       $username_data = $_SESSION['username'];
+      $email_report_type = 'Daily Results Email';
+      $email_report_type_combined = 'Daily Results Combined';
+      $email_report_type_monthly = 'Monthly Results Combined';
+      $email_report_type_monthly_administrators = 'Monthly Results Combined All Stores';
+      $email_report_type_90 = 'Employees Under 90 Days';
     
     // Daily Email Subject
 

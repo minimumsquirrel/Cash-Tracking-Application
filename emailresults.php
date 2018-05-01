@@ -166,6 +166,19 @@ $bodycombined = "$body $body2 $body3 $body4 $footers";
 
 if ($store1receive > "0") {
   mail("$store1email",$emailsubject,$bodycombined,$headers);
+
+}
+
+//Records when an email has been sent to keep a log of all emails sent
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email1 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store1', '$store1name', '$store1email')";
+
+if ($store1receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email1);
+
 }
 
 
@@ -330,6 +343,17 @@ if ($store2receive > "0") {
   mail("$store2email",$emailsubject,$bodycombined2,$headers);
 }
 
+//Records when an email has been sent to keep a log of all emails sent
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email2 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store2', '$store2name', '$store2email')";
+
+if ($store2receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email2);
+
+}
 
 // ______________________________________Store #3__________________________________________ --> 
 
@@ -492,6 +516,17 @@ if ($store3receive > "0") {
   mail("$store3email",$emailsubject,$bodycombined3,$headers);
 }
 
+//Records when an email has been sent to keep a log of all emails sent
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email3 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store3', '$store3name', '$store3email')";
+
+if ($store3receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email3);
+
+}
 
 
 // ______________________________________Store #4__________________________________________ --> 
@@ -655,7 +690,17 @@ if ($store4receive > "0") {
   mail("$store4email",$emailsubject,$bodycombined4,$headers);
 }
 
+//Records when an email has been sent to keep a log of all emails sent
 
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email4 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store4', '$store4name', '$store4email')";
+
+if ($store4receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email4);
+
+}
 // ______________________________________Store #5__________________________________________ --> 
 
 
@@ -818,6 +863,17 @@ if ($store5receive > "0") {
   mail("$store5email",$emailsubject,$bodycombined5,$headers);
 }
 
+//Records when an email has been sent to keep a log of all emails sent
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email5 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store5', '$store5name', '$store5email')";
+
+if ($store5receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email5);
+
+}
 
 // ______________________________________Store #6__________________________________________ --> 
 
@@ -981,6 +1037,17 @@ if ($store6receive > "0") {
   mail("$store6email",$emailsubject,$bodycombined6,$headers);
 }
 
+//Records when an email has been sent to keep a log of all emails sent
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email6 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store6', '$store6name', '$store6email')";
+
+if ($store6receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email6);
+
+}
 
 // ______________________________________Store #7__________________________________________ --> 
 
@@ -1144,6 +1211,15 @@ if ($store7receive > "0") {
   mail("$store7email",$emailsubject,$bodycombined7,$headers);
 }
 
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email7 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store7', '$store7name', '$store7email')";
+
+if ($store7receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email7);
+
+}
 
 // ______________________________________Store #8__________________________________________ --> 
 
@@ -1307,6 +1383,15 @@ if ($store8receive > "0") {
   mail("$store8email",$emailsubject,$bodycombined8,$headers);
 }
 
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email8 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store8', '$store8name', '$store8email')";
+
+if ($store8receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email8);
+
+}
 
 // ______________________________________Store #9__________________________________________ --> 
 
@@ -1470,6 +1555,16 @@ if ($store9receive > "0") {
   mail("$store9email",$emailsubject,$bodycombined9,$headers);
 }
 
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email9 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store9', '$store9name', '$store9email')";
+
+if ($store9receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email9);
+
+}
+
 
 // ______________________________________Store #10__________________________________________ --> 
 
@@ -1631,6 +1726,16 @@ $bodycombined10 = "$body38 $body39 $body40 $body41 $footers";
 
 if ($store10receive > "0") {
   mail("$store10email",$emailsubject,$bodycombined10,$headers);
+}
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type";
+$ins_sql_email10 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', '$store10', '$store10name', '$store10email')";
+
+if ($store10receive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email10);
+
 }
 
 
@@ -1798,6 +1903,18 @@ $bodycombined11 = "$body42 $body43 $body44 $body45 $footers";
 if ($storeadminreceive > "0") {
   mail("$administrators",$emailsubject,$bodycombined11,$headers);
 }
+
+
+$entered_ip = mysqli_real_escape_string($conn, strip_tags($_SERVER["REMOTE_ADDR"]));
+$type = "$email_report_type_combined";
+$ins_sql_email11 = "INSERT INTO email_reports (ip, type, date, store, store_name, email_address) VALUES ('$entered_ip', '$type', '$currentday', 'ALL', 'Administrators', '$administrators')";
+
+if ($storeadminreceive > "0") {
+    
+  mysqli_query($conn, $ins_sql_email11);
+
+}
+
 
 ?>
   
