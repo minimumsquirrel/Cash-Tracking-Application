@@ -56,11 +56,14 @@
                           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="changelog.php" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
                             <a class="dropdown-item">User: <?php echo $_SESSION['username']; ?></a>
+                            <a class="dropdown-item" href="adminaccesslogs.php">Access Logs</a>
+                            <a class="dropdown-item" href="changelog.php">Changelog</a>
+                            <a class="dropdown-item" href="admindailyentry.php">Daily Entry Review</a>
+                            <a class="dropdown-item" href="adminemailssent.php">Email Logs</a>
                             <a class="dropdown-item" href="globalformatinput.php">Settings</a>
-                            <a class="dropdown-item" href="admindailyentry.php">Entry Review</a>
                             <a class="dropdown-item" href="adminstores.php">Stores</a>
                             <a class="dropdown-item" href="adminusers.php">Users</a>
-                            <a class="dropdown-item" href="changelog.php">Changelog</a>
+                            
                           </div>
                         </li>
                     </ul>
